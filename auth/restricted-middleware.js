@@ -11,11 +11,11 @@ module.exports = (req, res, next) => {
     jwt.verify(token, jwtSecret, (err, decodedToken) => {
       if (err) {
         // the token is not valid
-        res.status(401).json({ message: "cant touch this!" });
+        res.status(401).json({ message: "can't touch this!" });
       } else {
         next();
       }
-    },);
+    });
   } else {
     res.status(401).json({ message: "shall not pass" });
   }
