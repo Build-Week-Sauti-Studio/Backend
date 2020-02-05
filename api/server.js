@@ -14,7 +14,7 @@ server.use(cors());
 server.use(express.json());
 
 server.get('/', (req, res) => {
-  res.send('Welcome to Sauti Studios');
+  res.send('Welcome to Real Sauti Studios');
 });
 
 server.use('/api/auth', authRouter);
