@@ -17,7 +17,7 @@ module.exports = {
     // ONLY NEEDED FOR SQLITE
     pool: {
         afterCreate: (conn, done) => {
-            conn.run("PRAGMA foreign_keys = ON", done); // tur on foreign key enforcement
+            conn.run("PRAGMA foreign_keys = ON", done); // turn on foreign key enforcement
       },
     },
   },
