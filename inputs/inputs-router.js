@@ -3,7 +3,7 @@ const router = require('express').Router();
 const Inputs = require('./inputs-model.js');
 const restricted = require('../auth/restricted-middleware.js');
 
-router.get('/', restricted, (req, res) => {
+router.get('/', (req, res) => {
   Inputs.find()
   .then(inputs => {
     res.json(inputs);
@@ -13,7 +13,7 @@ router.get('/', restricted, (req, res) => {
   });
 });
 
-router.get('/:id', restricted,(req, res) => {
+router.get('/:id', (req, res) => {
   const { id } = req.params;
 
   Inputs.findById(id)
@@ -29,7 +29,7 @@ router.get('/:id', restricted,(req, res) => {
   });
 });
 
-router.post('/', restricted,(req, res) => {
+router.post('/', (req, res) => {
   const schemeData = req.body;
 
   Inputs.add(schemeData)
@@ -41,7 +41,7 @@ router.post('/', restricted,(req, res) => {
   });
 });
 
-router.post('/:id', restricted, (req, res) => {
+router.post('/:id', (req, res) => {
   const stepData = req.body;
   const { id } = req.params;
 
@@ -61,7 +61,7 @@ router.post('/:id', restricted, (req, res) => {
   });
 });
 
-router.put('/:id', restricted, (req, res) => {
+router.put('/:id', (req, res) => {
   const { id } = req.params;
   const changes = req.body;
 
@@ -81,7 +81,7 @@ router.put('/:id', restricted, (req, res) => {
   });
 });
 
-router.delete('/:id', restricted, (req, res) => {
+router.delete('/:id', (req, res) => {
   const { id } = req.params;
 
   Inputs.remove(id)
